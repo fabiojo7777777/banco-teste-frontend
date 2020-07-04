@@ -1,0 +1,6 @@
+<div ng-controller="BancoTesteAlertController as vm">
+	<script type="text/ng-template" id="alert.html">
+		<div ng-transclude></div>
+	</script>
+	<div uib-alert ng-repeat="alert in vm.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="alert.dismiss($index)">{{alert.text}}</div>
+</div>

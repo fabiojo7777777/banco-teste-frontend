@@ -1,0 +1,37 @@
+<div data-ng-controller="ContaController as vm" data-ng-init="vm.onInit()">
+	<div class="text-right">
+		<span class="mi mi-help"></span>
+	</div>
+	<div class="x row mt-4 mb-4">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Extratos</h5>
+					<div class="d-inline-block" data-ng-repeat="conta in vm.listaConta">
+						<a>
+							<img data-ng-click="vm.detalheExtrato(conta)" style="width: 200px;" data-ng-src="{{conta.fotoCartao}}"><br/>
+							<div class="small text-center">
+								Saldo: <span data-ng-class="{'text-info': (conta.saldo >= 0), 'text-danger': (conta.saldo < 0)}">{{conta.saldo | currency : "R$"}}</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Transferências</h5>
+					<div class="d-inline-block" data-ng-repeat="conta in vm.listaConta">
+						<a>
+							<img data-ng-click="vm.transferencia(conta)" style="width: 200px;" data-ng-src="{{conta.fotoCartao}}"><br/>
+							<div class="small text-center">
+								Saldo: <span data-ng-class="{'text-info': (conta.saldo >= 0), 'text-danger': (conta.saldo < 0)}">{{conta.saldo | currency : "R$"}}</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div>

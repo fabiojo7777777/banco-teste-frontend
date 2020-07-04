@@ -1,0 +1,40 @@
+<div data-ng-controller="DetalheExtratoController as vm" data-ng-init="vm.onInit()">
+	<div class="text-right">
+		<span class="mi mi-help"></span>
+	</div>
+	<div class="x row mt-4 mb-4">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Lançamentos</h5>
+					<div class="card-text">Agência: {{vm.agencia}}</div>
+					<div class="card-text">Conta: {{vm.conta}}</div>
+					<div class="form-group">Período: 
+					    <select class="form-control" data-ng-change="vm.consultarExtrato()" data-ng-model="vm.periodo" data-ng-options="item as item.label for item in vm.listaPeriodo track by item.id">
+						</select>
+					</div>
+					<div class="p-2 pb-4 card-text">
+						<div class="p-1 row btn-primary">
+							<div class="pl-1 pr-0 col-2 text-nowrap text-truncate">Dt. Movimento</div>
+							<div class="pl-1 pr-0 col-2 text-nowrap text-truncate">Histórico</div>
+							<div class="pl-1 pr-0 col-2 text-nowrap text-truncate text-right">Documento</div>
+							<div class="pl-1 pr-0 col-3 text-nowrap text-truncate text-right">Valor</div>
+							<div class="pl-1 pr-1 col-3 text-nowrap text-truncate text-right">Saldo</div>
+						</div>
+						<div class="row btn-default" data-ng-repeat="lancamento in vm.listaLancamento">
+							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2 text-nowrap text-truncate">{{lancamento.data}}</div>
+							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2">{{lancamento.historico}}</div>
+							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2 text-nowrap text-truncate text-right">{{lancamento.documento}}</div>
+							<div data-ng-class="{'bg-light': ($index % 2 === 0), 'text-info': (lancamento.valor >= 0), 'text-danger': (lancamento.valor < 0)}" class="pl-1 pr-0 col-3 text-nowrap text-truncate text-right">{{lancamento.valor | currency : "R$" : 2}}</div>
+							<div data-ng-class="{'bg-light': ($index % 2 === 0), 'text-info': (lancamento.saldo >= 0), 'text-danger': (lancamento.saldo < 0)}" class="pl-1 pr-1 col-3 text-nowrap text-truncate text-right">{{lancamento.saldo | currency : "R$" : 2}}</div>
+						</div>
+						<div class="row btn-default" data-ng-if="vm.descricaoSemLancamento">
+							{{vm.descricaoSemLancamento}}
+						</div>
+					<div class="float-right">
+						<button type="button" class="btn btn-primary" data-ng-click="vm.voltar()" />Voltar</button>
+					</div>
+			</div>
+		</div>
+	</div>
+<div>

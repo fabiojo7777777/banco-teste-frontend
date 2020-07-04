@@ -1,0 +1,39 @@
+<html data-ng-app="banco-teste-app">
+    <head>
+        <title>Banco exemplo</title>
+    </head>
+    <body class="container">
+
+		<link rel="stylesheet" href="node_modules/ui-bootstrap-csp.css" charset="UTF-8"></link>		
+		<link rel="stylesheet" href="node_modules/bootstrap.css" charset="UTF-8"></link>
+		<link rel="stylesheet" href="node_modules/bootstrap-grid.css" charset="UTF-8"></link>
+		<link rel="stylesheet" href="node_modules/bootstrap-reboot.css" charset="UTF-8"></link>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="node_modules/material-icons.css" charset="UTF-8"></link>	
+
+        <script src="node_modules/angular.js" charset="UTF-8"></script>
+		<script src="node_modules/angular-locale_pt-br.js" charset="UTF-8"></script>
+		<script src="node_modules/angular-route.js" charset="UTF-8"></script>
+		<script src="node_modules/ui-bootstrap-tpls.js" charset="UTF-8"></script>
+
+		<script src="directive/banco-teste-alert/banco-teste-alert.js" charset="UTF-8"></script>
+		<script src="service/backend.service.js" charset="UTF-8"></script>
+        <script src="index.app.js" charset="UTF-8"></script>
+        <script src="index.route.js" charset="UTF-8"></script>
+		<script src="login/login.controller.js" charset="UTF-8"></script>
+		<script src="conta/conta.controller.js" charset="UTF-8"></script>
+		<script src="conta/detalhe-extrato.controller.js" charset="UTF-8"></script>
+		<script src="conta/transferencia.controller.js" charset="UTF-8"></script>
+
+		<style>
+			.nav, .pagination, .carousel, .panel-title a, a { 
+				cursor: pointer; 
+			};
+		</style>
+
+		<banco-teste-alert></banco-teste-alert>
+		
+		<div data-ng-view>
+		</div>
+    </body>
+</html>

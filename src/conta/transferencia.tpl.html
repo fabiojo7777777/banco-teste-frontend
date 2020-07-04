@@ -1,0 +1,32 @@
+<div data-ng-controller="TransferenciaController as vm" data-ng-init="vm.onInit()">
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">Transferëncias</h5>
+			<div class="card-text">Agência origem: {{vm.agenciaOrigem}}</div>
+			<div class="card-text">Conta origem: {{vm.contaOrigem}}</div>
+			<div class="form-group">
+				<span class="small text-center" data-ng-if="vm.saldo === undefined">
+					Saldo atual: <span data-ng-class="{'text-info': (vm.saldo >= 0), 'text-danger': (vm.saldo < 0)}">-</span>
+				</span>
+				<span class="small text-center" data-ng-if="vm.saldo !== undefined">
+					Saldo atual: <span data-ng-class="{'text-info': (vm.saldo >= 0), 'text-danger': (vm.saldo < 0)}">{{vm.saldo | currency : "R$"}}</span>
+				</span>
+			</div>
+			<label class="form-group">
+				Agência destino: 
+				<input type="text" class="form-inline" data-ng-model="vm.agenciaDestino" />
+			</label>
+			<label class="form-group">
+				Conta destino: 
+				<input type="text" class="form-inline" data-ng-model="vm.contaDestino" />
+			</label>
+			<label class="form-group">
+				Senha: 
+				<input type="password" class="form-inline" data-ng-model="vm.senha" />
+			</label>
+			<div class="float-right">
+				<button type="button" class="btn btn-primary" data-ng-click="vm.transferir()" />Transferir</button>
+				<button type="button" class="btn btn-primary" data-ng-click="vm.voltar()" />Voltar</button>
+			<div>
+		</div>
+</div>

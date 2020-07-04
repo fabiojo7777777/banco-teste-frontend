@@ -1,0 +1,15 @@
+<div data-ng-controller="LoginController as vm" data-ng-init="vm.onInit()">
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">Login</h5>
+			<label class="form-group">
+				Usuário: 
+				<input type="text" class="form-inline" data-ng-model="vm.usuario" />
+			</label>
+			<label class="form-group">
+				Senha: 
+				<input type="password" class="form-inline" data-ng-model="vm.senha"/>
+			</label>
+			<button type="button" class="btn btn-primary" data-ng-click="vm.login()" />Logar</button>
+		</div>
+</div>
