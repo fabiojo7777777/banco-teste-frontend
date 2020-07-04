@@ -6,8 +6,10 @@
 		"conta-controllers",
 		"detalhe-extrato-controllers",
 		"backend-service",
-		"banco-test-diretivas",
-		"transferencia-controllers"
+		"banco-teste-alert-diretivas",
+		"banco-teste-carregando-diretivas",
+		"transferencia-controllers",
+		"formatar-data-filter"
 	]);
 	
 	aplicacao.config(['$httpProvider', function($httpProvider) {
@@ -18,13 +20,28 @@
 
 	HttpInterceptor.$inject = ['$q', '$rootScope', '$location', '$timeout'];
 
+	var requisicoesEmAndamento = 0;
 	function HttpInterceptor($q, $rootScope, $location, $timeout) {
 		return {
 			request: function(config) {
+				requisicoesEmAndamento++;
+				addCarregando();
 				config.headers['X-TOKEN'] = "X-TOKEN";
 				return config;				
 			},
+			requestError: function(rejection) {
+				requisicoesEmAndamento--;
+				removeCarregando();
+				return $q.reject(rejection);
+			},
+			response: function(response) {
+				requisicoesEmAndamento--;
+				removeCarregando();
+				return response;
+			},
 			responseError: function(error) {
+				requisicoesEmAndamento--;
+				removeCarregando();
 				if (!$rootScope.messages) {
 					$rootScope.messages = [];
 				}
@@ -39,22 +56,55 @@
 						$location.search({});
 						$location.path("/login");
 						$timeout(function(){
-							$rootScope.messages.push({
-								type: 'ERROR',
-								text: error.status + " - " + error.statusText
-							});
+							exibirErro(error, $rootScope);
 						}, 100);
 					}
 					else {
-						$rootScope.messages.push({
-							type: 'ERROR',
-							text: error.status + " - " + error.statusText
-						});
+						exibirErro(error, $rootScope);
 					}
 				}
 				return $q.reject(error);
 			}
 		};
 	}
+	
+	function addCarregando() {
+		try {
+			angular.element(document.querySelector("#carregando")).removeClass("ng-hide");
+		}
+		catch(e) {
+		}
+	}
+	
+	function removeCarregando() {
+		if (requisicoesEmAndamento <= 0) {
+			requisicoesEmAndamento = 0;
+			try {
+				angular.element(document.querySelector("#carregando")).addClass("ng-hide");
+			}
+			catch(e) {
+			}
+		}
+	}
+	
+	function exibirErro(error, $rootScope) {
+		if (!$rootScope.messages) {
+			$rootScope.messages = [];
+		}
+		if (error && error.data && angular.isArray(error.data.messages)) {
+			for (var i = 0; i < error.data.messages.length; i++) {
+				$rootScope.messages.push({
+					type: 'ERROR',
+					text: error.status + " - " + error.data.messages[i]
+				});
+			}
+		}
+		else {
+			$rootScope.messages.push({
+				type: 'ERROR',
+				text: error.status + " - " + error.statusText
+			});
+		}
+	};
 
 })();

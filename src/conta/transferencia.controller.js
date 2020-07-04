@@ -25,11 +25,11 @@
 			vm.agenciaOrigem =parametros.agenciaOrigem;
 			vm.contaOrigem = parametros.contaOrigem;
 			BackendService.saldo({
-				agencia: vm.agenciaOrigem,
-				conta: vm.contaOrigem
+				codigoAgencia: vm.agenciaOrigem,
+				numeroConta: vm.contaOrigem
 			})
 			.then(function(response){
-				vm.saldo = response.data.saldo;
+				vm.saldo = response.data.data.saldo;
 			})
 			.catch(function(error){
 				vm.saldo = undefined;
@@ -39,11 +39,16 @@
 		function transferir() {
 			$rootScope.messages = [];
 			BackendService.transferir({
-				agenciaOrigem: vm.agenciaOrigem,
-				contaOrigem: vm.contaOrigem,
-				agenciaDestino: vm.agenciaDestino,
-				contaDestino: vm.contaDestino,
-				senha: vm.senha
+				contaOrigem: {
+					codigoAgencia: vm.agenciaOrigem,
+					numeroConta: vm.contaOrigem,
+					senha: vm.senha
+				},
+				contaDestino: {
+					codigoAgencia: vm.agenciaDestino,
+					numeroConta: vm.contaDestino
+				},
+				valor: vm.valor
 			}).then(function(response){
 				voltar();
 				$timeout(function() {

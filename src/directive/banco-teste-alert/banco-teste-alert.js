@@ -1,5 +1,5 @@
 (function() {
-	var aplicacao = angular.module("banco-test-diretivas", []);
+	var aplicacao = angular.module("banco-teste-alert-diretivas", []);
 	aplicacao.directive("bancoTesteAlert", BancoTesteAlert);
 	aplicacao.controller("BancoTesteAlertController", BancoTesteAlertController);
 

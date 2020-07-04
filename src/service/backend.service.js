@@ -15,27 +15,35 @@
 						data: request
 					});
 			},
+			contas: function(request) {
+				return $http(
+					{
+						method: 'GET',
+						url: backendUrl + '/conta/contas',
+						params: request
+					});
+			},
 			saldo: function(request) {
 				return $http(
 					{
-						method: 'POST',
-						url: backendUrl + '/saldo',
-						data: request
+						method: 'GET',
+						url: backendUrl + '/conta/saldo',
+						params: request
 					});
 			},
 			extrato: function(request) {
 				return $http(
 					{
-						method: 'POST',
-						url: backendUrl + '/extrato',
-						data: request
+						method: 'GET',
+						url: backendUrl + '/conta/extrato',
+						params: request
 					});
 			},
 			transferir: function(request) {
 				return $http(
 					{
 						method: 'POST',
-						url: backendUrl + '/transferir',
+						url: backendUrl + '/conta/transferencia',
 						data: request
 					});
 			}

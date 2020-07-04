@@ -22,7 +22,7 @@
 							<div class="pl-1 pr-1 col-3 text-nowrap text-truncate text-right">Saldo</div>
 						</div>
 						<div class="row btn-default" data-ng-repeat="lancamento in vm.listaLancamento">
-							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2 text-nowrap text-truncate">{{lancamento.data}}</div>
+							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2 text-nowrap text-truncate">{{lancamento.dataMovimento | formatarData}}</div>
 							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2">{{lancamento.historico}}</div>
 							<div data-ng-class="{'bg-light': ($index % 2 === 0)}" class="pl-1 pr-0 col-2 text-nowrap text-truncate text-right">{{lancamento.documento}}</div>
 							<div data-ng-class="{'bg-light': ($index % 2 === 0), 'text-info': (lancamento.valor >= 0), 'text-danger': (lancamento.valor < 0)}" class="pl-1 pr-0 col-3 text-nowrap text-truncate text-right">{{lancamento.valor | currency : "R$" : 2}}</div>
