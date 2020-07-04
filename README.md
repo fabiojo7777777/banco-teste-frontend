@@ -1,7 +1,8 @@
 # banco-teste-frontend
 
-Projeto de testes somente para fins didáticos
-Este projeto depende o backend banco-teste-backend (https://github.com/fabiojo7777777/banco-teste-backend/edit/master/README.md)
+Projeto de testes somente para fins didáticos.
+
+Este projeto depende do backend #banco-teste-backend# (https://github.com/fabiojo7777777/banco-teste-backend/edit/master/README.md)
 
 # Passo a passo para a criação desta estrutura
 1. Inicializando o pacote node na pasta, na linha de comando:
