@@ -5,7 +5,7 @@
 
 	BackendService.$inject = ['$http', '$q'];
 	function BackendService($http, $q) {
-		var backendUrl = "http://localhost:8080";
+		var backendUrl = "http://localhost:8001";
 		return {
 			login: function(request) {
 				return $http(
