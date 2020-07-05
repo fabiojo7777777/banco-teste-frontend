@@ -15,6 +15,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
 	
+	npm install socket.io
+
 	npm install grunt-cli -g
 
 	npm install grunt --save-dev
@@ -26,8 +28,6 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	npm install grunt-contrib-watch --save-dev	
 	
 	npm install grunt-contrib-connect --save-dev	
-
-	npm install socket.io --save-dev
 
 na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
 		
