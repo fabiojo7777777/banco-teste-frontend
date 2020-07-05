@@ -5,14 +5,16 @@ Projeto de testes somente para fins didáticos.
 Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend)
 
 # Passo a passo para a criação desta estrutura
-1. Inicializando o pacote node na pasta, na linha de comando:
-    npm init 
+1. Inicializando o pacote node, na linha de comando:
+
+	criar pasta para iniciar o projeto e digitar dentro desta pasta:
+
+	npm init 
+
 		<<Informar os valores padrões e dar enter>>
     
 2. Criando um servidor de arquivos estáticos com grunt:
-	
-	criar pasta para iniciar o projeto
-	
+		
 	na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
 	
 	npm install socket.io
