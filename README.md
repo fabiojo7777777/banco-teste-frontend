@@ -2,7 +2,7 @@
 
 Projeto de testes somente para fins didáticos.
 
-Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend/master/README.md)
+Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend)
 
 # Passo a passo para a criação desta estrutura
 1. Inicializando o pacote node na pasta, na linha de comando:
@@ -23,7 +23,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	npm install grunt-contrib-connect --save-dev	
 
-	criar Gruntfile com o conteúdo do arquivo Gruntfile do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/master/Gruntfile)	
+	criar Gruntfile com o conteúdo do arquivo Gruntfile do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)	
 		
 	digitar na linha de comando:	
 	
