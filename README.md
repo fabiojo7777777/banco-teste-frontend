@@ -17,6 +17,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	npm install grunt-cli -g
 
+	npm install grunt --save-dev
+
 	npm install grunt-copy-deps --save-dev
 
 	npm install grunt-contrib-copy --save-dev	
