@@ -13,14 +13,14 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	npm install grunt -g
 	npm install grunt-copy-deps --save-dev
-	npm install grunt-contrib-copy --save-dev
-	npm install grunt-contrib-watch --save-dev
-	npm install grunt-contrib-connect --save-dev
+	npm install grunt-contrib-copy --save-dev	
+	npm install grunt-contrib-watch --save-dev	
+	npm install grunt-contrib-connect --save-dev	
 
-	criar Gruntfile com o conteúdo do meu arquivo Gruntfile no repositório github:
+	criar Gruntfile com o conteúdo do meu arquivo Gruntfile no repositório github:	
 		
-	digitar na linha de comando:
-		grunt
+	digitar na linha de comando:	
+		grunt		
 	abrir http://localhost:8100/index.html		
 
 3. Testes unitários e de integração com karma / jasmine
