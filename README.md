@@ -5,7 +5,7 @@ Projeto de testes somente para fins didáticos.
 Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend)
 
 # Passo a passo para a criação desta estrutura
-**1. Criando um servidor de arquivos estáticos:
+1. Criando um servidor de arquivos estáticos:
 
 		criar pasta para iniciar o projeto e digitar na linha de comando, dentro desta pasta:
 
