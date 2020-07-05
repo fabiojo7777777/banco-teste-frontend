@@ -7,13 +7,13 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 # Passo a passo para a criação desta estrutura
 1. Criando um servidor de arquivos estáticos:
 
-	1.1. criar pasta para iniciar o projeto e digitar na linha de comando, dentro desta pasta:
+	**criar pasta para iniciar o projeto e digitar na linha de comando, dentro desta pasta:**
 
 		npm init 
 
 			<<Informar os valores padrões e dar enter>>
     
-	1.2. Criando um servidor de arquivos estáticos com grunt:
+	**Criando um servidor de arquivos estáticos com grunt:**
 		
 		na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
 
@@ -66,7 +66,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 	    npm install angular-mocks --save-dev
 
-    3.1 Inicializando as ferramentas de teste
+    **Inicializando as ferramentas de teste**
     
 	    npx jasmine init
 
