@@ -26,6 +26,7 @@
 			request: function(config) {
 				requisicoesEmAndamento++;
 				addCarregando();
+				// AQUI COLOCA O TOKEN DE AUTENTICAÇÃO CASO HAJA UM
 				config.headers['X-TOKEN'] = "X-TOKEN";
 				return config;				
 			},
@@ -48,10 +49,13 @@
 				if (error.status === -1) {
 					$rootScope.messages.push({
 						type: 'ERROR',
-						text: "Não foi possível conectar"
+						text: "Não foi possível conectar à url " + error.config.url
 					});
 				}
+				// EM CASO DE ERROS, EXIBIR AUTOMATICAMENTE ERROS NA TELA 
+				// SEM PRECISAR EXPLICITAMENTE FAZER ISSO PARA CADA CHAMADA HTTP
 				else if (error.status >= 400 && error.status <= 500) {
+					// CASO SEJA ERRO DE USUÁRIO NÃO AUTENTICADO, REDIRECIONAR PARA LOGIN
 					if (error.status === 401) {
 						$location.search({});
 						$location.path("/login");

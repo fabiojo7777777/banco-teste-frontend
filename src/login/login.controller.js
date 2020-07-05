@@ -8,12 +8,12 @@
 		var vm = this;
 		vm.onInit = onInit;
 		vm.login = login;
+		vm.logoff = logoff;
 		
 		function onInit() {
 		}
 		
 		function login() {
-			$rootScope.usuarioLogado = {};
 			$rootScope.messages = [];
 			BackendService.login({
 				usuario: vm.usuario,
@@ -21,8 +21,18 @@
 			})
 			.then(function(response){
 				$location.path("/conta");
-				$rootScope.loggedUser = response.data;
+				$rootScope.usuarioLogado = response.data;
 			});
 		}
+		
+		function logoff() {
+			$rootScope.messages = [];
+			BackendService.logoff({})
+			.then(function(response){
+				$location.path("/login");
+				$rootScope.usuarioLogado = undefined;
+			});
+		}
+
 	}
 })();

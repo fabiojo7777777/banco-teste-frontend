@@ -33,6 +33,11 @@
 			};
 		</style>
 
+		<div data-ng-controller="LoginController as vm" data-ng-init="vm.onInit()">
+			<div class="text-right">
+				<span title="Logoff" data-ng-click="vm.logoff()" class="btn btn-default mi mi-exit-to-app"></span>
+			</div>
+		</div>
 		<banco-teste-carregando></banco-teste-carregando>
 		<banco-teste-alert></banco-teste-alert>
 		

@@ -7,12 +7,28 @@
 	function BackendService($http, $q) {
 		var backendUrl = "http://localhost:8001";
 		return {
+			acessos: function(request) {
+				return $http(
+					{
+						method: 'GET',
+						url: backendUrl + '/acessos',
+						data: request
+					});
+			},
 			login: function(request) {
 				return $http(
 					{
 						method: 'POST',
 						url: backendUrl + '/login',
 						data: request
+					});
+			},
+			logoff: function(request) {
+				return $http(
+					{
+						method: 'GET',
+						url: backendUrl + '/logoff',
+						params: request
 					});
 			},
 			contas: function(request) {
