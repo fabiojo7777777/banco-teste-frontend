@@ -34,7 +34,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 3. Testes unitários e de integração com karma / jasmine
     criar as pastas src e spec
     
-    npm install karma -g
+    npm install karma
     
     npx karma init
         
