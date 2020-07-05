@@ -11,6 +11,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
     
 2. Criando um servidor de arquivos estáticos com grunt:
 	
+	criar o diretório src e colocar um arquivo index.html
+	
 	npm install grunt -g
 
 	npm install grunt-copy-deps --save-dev
@@ -23,8 +25,6 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 	criar Gruntfile com o conteúdo do meu arquivo Gruntfile no repositório github:	
 		
-	criar diretório src e colocar um arquivo index.html
-
 	digitar na linha de comando:	
 	
 		grunt		
@@ -32,6 +32,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	abrir http://localhost:8100/index.html		
 
 3. Testes unitários e de integração com karma / jasmine
+    
     criar as pastas src e spec
     
     npm install karma
@@ -68,6 +69,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
     npm install jasmine --save-dev
     
     npx jasmine init
+    
+    npx karma start
 
 4. Desenvolvendo a aplicação front-end:
 	
