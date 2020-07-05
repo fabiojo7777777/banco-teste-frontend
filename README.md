@@ -23,6 +23,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 	criar Gruntfile com o conteúdo do meu arquivo Gruntfile no repositório github:	
 		
+	criar diretório src e colocar um arquivo index.html
+
 	digitar na linha de comando:	
 	
 		grunt		
