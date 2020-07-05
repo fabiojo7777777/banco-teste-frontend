@@ -33,7 +33,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 		npm install grunt-contrib-connect --save-dev	
 
 		na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github 
-		![Gruntfile.js](https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
+		![Gruntfile.js](/Gruntfile.js)
 
 		digitar na linha de comando:	
 
