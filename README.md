@@ -41,57 +41,57 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 2. Preparando projeto para desenvolvimento de aplicação front-end com angular / bootstrap:
 	
-	npm install angular
+		npm install angular
+
+		npm install angular-route
+
+		npm install angular-ui-bootstrap
+
+		npm install bootstrap-css-only
+
+		npm install angular-i18n
+
+		npm install material-icons	
 	
-	npm install angular-route
-	
-	npm install angular-ui-bootstrap
-	
-	npm install bootstrap-css-only
-	
-	npm install angular-i18n
-	
-	npm install material-icons	
-	
-	Obs: componentes utilizados pelo angular, olhar: https://angular-ui.github.io/bootstrap/
+	**Obs: componentes utilizados pelo angular, olhar: https://angular-ui.github.io/bootstrap/**
 
 
 3. Configurando testes unitários e de integração com karma / jasmine / angularjs
     
-    criar as pastas src e spec
-    
-    npm install jasmine --save-dev
+	    criar as pastas src e spec
 
-    npm install karma --save-dev
-    
-    npm install angular-mocks --save-dev
+	    npm install jasmine --save-dev
+
+	    npm install karma --save-dev
+
+	    npm install angular-mocks --save-dev
 
     3.1 Inicializando as ferramentas de teste
     
-    npx jasmine init
+	    npx jasmine init
 
-    npx karma init
-        
-	Para as perguntas na linha de comando informar: 
-            
-	    jasmine
-            
-	    no
-            
-	    PhantomJS
-            
-	    <<dar enter>>
-            
-	    src/*.js
-            
-	    src/**/*.js
-            
-	    spec/*.js
-            
-	    spec/**/*.js
-            
-	    <<dar enter>>
-            
-	    yes
-    
-    npx karma start
+	    npx karma init
+
+		Para as perguntas na linha de comando informar: 
+
+		    jasmine
+
+		    no
+
+		    PhantomJS
+
+		    <<dar enter>>
+
+		    src/*.js
+
+		    src/**/*.js
+
+		    spec/*.js
+
+		    spec/**/*.js
+
+		    <<dar enter>>
+
+		    yes
+
+	    npx karma start
