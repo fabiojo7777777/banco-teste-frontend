@@ -27,7 +27,9 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	npm install grunt-contrib-connect --save-dev	
 
-	na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
+	npm install socket.io --save-dev
+
+na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
 		
 	digitar na linha de comando:	
 	
