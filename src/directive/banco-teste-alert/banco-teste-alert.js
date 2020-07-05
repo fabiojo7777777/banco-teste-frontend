@@ -10,8 +10,8 @@
 		};
 	}
 	
-	BancoTesteAlertController.$inject = ["$rootScope", "$timeout"];
-	function BancoTesteAlertController($rootScope, $timeout) {
+	BancoTesteAlertController.$inject = ["$rootScope"];
+	function BancoTesteAlertController($rootScope) {
 		var vm = this;
 		vm.alerts = [];
 		$rootScope.$watch("messages", function(newMessages, oldMessages) {

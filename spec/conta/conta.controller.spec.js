@@ -8,9 +8,14 @@ describe("conta.controller", function() {
 		// mock da transação listar contas que executa no onInit do controller
 		$provide.factory("BackendService", function(){
 			return {
-				contas: function() {
+				contas: function(request) {
 					return {
-						then: function() {
+						then: function(callbackSucesso) {
+							callbackSucesso({
+								data: {
+									data: []
+								}
+							});
 						}
 					};
 				}
@@ -22,14 +27,15 @@ describe("conta.controller", function() {
         ctrl = _$controller_("ContaController");
     }));
 
-    it("*** Testar ContaController ***", function($rootScope) {
+    it("*** Testar ContaController ***", inject(function(_$rootScope_) {
 		
-		$rootScope.messages = [];
+		_$rootScope_.messages = [];
 		
 		ctrl.onInit();
 		
-		expect($rootScope.messages).toBeDefined();
-		expect($rootScope.messages.length).toEqual(0);
-    });
+		expect(_$rootScope_.messages).toBeDefined();
+		expect(_$rootScope_.messages.length).toEqual(0);
+
+    }));
 
 });

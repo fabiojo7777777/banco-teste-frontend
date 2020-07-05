@@ -11,7 +11,7 @@
 		vm.detalheExtrato = detalheExtrato;
 		vm.transferencia = transferencia;
 		vm.listaConta = [];
-
+	
 		var currencyFilter = $filter('currency');
 
 		function onInit() {
@@ -34,4 +34,5 @@
 			$location.path("/transferencia");
 		}
 	}
+
 })();

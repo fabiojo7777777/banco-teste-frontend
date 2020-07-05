@@ -16,7 +16,7 @@ aplicacao.config(function ($routeProvider, BackendServiceProvider, $rootScopePro
 	.otherwise("/login");
 });
 
-aplicacao.run(function($rootScope, $location, BackendService, $rootScope, $timeout){
+aplicacao.run(function(BackendService, $rootScope, $timeout) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
         $rootScope.messages = [];
 		if(next.originalPath === "/login") {

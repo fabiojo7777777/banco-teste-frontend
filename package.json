@@ -25,6 +25,7 @@
     "grunt-copy-deps": "^1.4.0",
     "jasmine": "^3.5.0",
     "karma": "^5.1.0",
+    "karma-coverage": "^2.0.2",
     "karma-jasmine": "^3.3.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "phantomjs-prebuilt": "^2.1.16"
