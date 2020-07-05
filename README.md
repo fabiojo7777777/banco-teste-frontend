@@ -15,7 +15,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
 	
-	npm install grunt -g
+	npm install grunt-cli -g
 
 	npm install grunt-copy-deps --save-dev
 
