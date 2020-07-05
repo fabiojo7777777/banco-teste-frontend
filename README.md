@@ -15,7 +15,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
     
 	**Criando um servidor de arquivos estáticos com grunt:**
 		
-		na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
+		na pasta do projeto, criar o diretório src e colocar um arquivo index.html com algum conteúdo html 
+		somente para testar se o sistema está funcionando
 
 		npm install socket.io
 
@@ -31,7 +32,8 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 		npm install grunt-contrib-connect --save-dev	
 
-		na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
+		na pasta do projeto, criar Gruntfile.js com o conteúdo do arquivo Gruntfile.js do meu repositório github <br/>
+		(https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/Gruntfile.js)
 
 		digitar na linha de comando:	
 
