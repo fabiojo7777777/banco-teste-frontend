@@ -36,7 +36,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
     
     npm install karma -g
     
-    karma init
+    npx karma init
         
 	Para as perguntas na linha de comando informar: 
             
