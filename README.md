@@ -65,35 +65,26 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	    npm install jasmine --save-dev
 
 	    npm install karma --save-dev
+	    
+	    npm install karma-jasmine --save-dev
+	    
+	    npm install karma-coverage --save-dev
 
+	    npm install phantomjs-prebuilt --save-dev
+	    
+	    npm install karma-phantomjs-launcher --save-dev
+	    
 	    npm install angular-mocks --save-dev
 
     **Inicializando as ferramentas de teste**
     
 	    npx jasmine init
 
-	    npx karma init
-
-		Para as perguntas na linha de comando informar: 
-
-		    jasmine
-
-		    no
-
-		    PhantomJS
-
-		    <<dar enter>>
-
-		    src/*.js
-
-		    src/**/*.js
-
-		    spec/*.js
-
-		    spec/**/*.js
-
-		    <<dar enter>>
-
-		    yes
-
+	    copiar o arquivo karma.conf.js deste repositório para a pasta raiz do projeto 
+	    (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/karma.conf.js)
+	    
+	    copiar arquivo spec de teste unitário do controller conta deste repositório 
+	    (https://github.com/fabiojo7777777/banco-teste-frontend/blob/master/spec/conta/conta.controller.spec.js) 
+	    para a pasta spec/conta/ do seu projeto
+	    
 	    npx karma start
