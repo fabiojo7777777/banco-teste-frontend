@@ -11,7 +11,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
     
 2. Criando um servidor de arquivos estáticos com grunt:
 	
-	criar o diretório src e colocar um arquivo index.html
+	criar o diretório src e colocar um arquivo index.html com algum conteúdo html somente para testar se o sistema está funcionando
 	
 	npm install grunt -g
 
