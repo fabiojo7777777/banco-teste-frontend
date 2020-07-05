@@ -1,20 +1,19 @@
 describe("conta.controller", function() {
 
+    var ctrl;
+
     beforeEach(angular.mocks.module("conta-controllers"));
 
     beforeEach(angular.mocks.module(function($provide){
     }));
 
     beforeEach(inject(function(_$controller_){
-        _$controller_("ContaController");
+        ctrl = _$controller_("ContaController");
     }));
 
-	it("*** Testar ContaController ***", function() {
-		var ctrl = mockHelper.criarController('testeControllers', 'testeController');
-		ctrl.somar();
-		//expect(ctrl.valor1).toEqual(1);
-		//expect(ctrl.valor2).toEqual(2);
-		//expect(ctrl.resultado).toEqual(4);
-	});
+    it("*** Testar ContaController ***", function($rootScope) {
+	ctrl.onInit();
+	expect($rootScope.messages.length).toEqual(0);
+    });
 
 });
