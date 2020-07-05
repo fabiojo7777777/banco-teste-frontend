@@ -2,9 +2,20 @@ describe("conta.controller", function() {
 
     var ctrl;
 
-    beforeEach(angular.mocks.module("conta-controllers"));
+    beforeEach(angular.mock.module("conta-controllers"));
 
-    beforeEach(angular.mocks.module(function($provide){
+    beforeEach(angular.mock.module(function($provide){
+		// mock da transação listar contas que executa no onInit do controller
+		$provide.factory("BackendService", function(){
+			return {
+				contas: function() {
+					return {
+						then: function() {
+						}
+					};
+				}
+			};
+		});
     }));
 
     beforeEach(inject(function(_$controller_){
@@ -12,8 +23,13 @@ describe("conta.controller", function() {
     }));
 
     it("*** Testar ContaController ***", function($rootScope) {
-	ctrl.onInit();
-	expect($rootScope.messages.length).toEqual(0);
+		
+		$rootScope.messages = [];
+		
+		ctrl.onInit();
+		
+		expect($rootScope.messages).toBeDefined();
+		expect($rootScope.messages.length).toEqual(0);
     });
 
 });
