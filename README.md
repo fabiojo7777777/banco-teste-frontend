@@ -110,3 +110,14 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 		npm grunt-cli install -g
 		grunt
 	3. Acesse o endereço http://localhost:8100
+	
+	4. Faça login com um dos usuários abaixo:
+		1. Usuário: fulano
+		   Senha: fulano
+		
+		2. Usuário: ciclano
+		   Senha: ciclano
+		   
+		3. Usuário: beltrano
+		   Senha: beltrano
+
