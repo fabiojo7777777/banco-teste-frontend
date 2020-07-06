@@ -14,6 +14,7 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 	![Tela de transferência entre contas](docs/imagens/transferencia.png?raw=true)
 	
+	
 # Passo a passo para a criação desta infraestrutura "DO ZERO"
 1. Criando um servidor de arquivos estáticos:
 
