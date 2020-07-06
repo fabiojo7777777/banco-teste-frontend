@@ -6,13 +6,13 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 
 # Telas deste projeto em execução:
 
-	![Tela de login](docs/imagens/login.png?raw=true)
+![Tela de login](docs/imagens/login.png?raw=true)
 	
-	![Tela de saldo das contas](docs/imagens/conta.png?raw=true)
+![Tela de saldo das contas](docs/imagens/conta.png?raw=true)
 	
-	![Tela de extrato da conta](docs/imagens/extrato.png?raw=true)
+![Tela de extrato da conta](docs/imagens/extrato.png?raw=true)
 	
-	![Tela de transferência entre contas](docs/imagens/transferencia.png?raw=true)
+![Tela de transferência entre contas](docs/imagens/transferencia.png?raw=true)
 	
 	
 # Passo a passo para a criação desta infraestrutura "DO ZERO"
