@@ -4,7 +4,17 @@ Projeto de testes somente para fins didáticos.
 
 Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend)
 
-# Passo a passo para a criação desta estrutura
+# Telas deste projeto em execução:
+
+	![Tela de login](docs/imagens/login.png?raw=true)
+	
+	![Tela de saldo das contas](docs/imagens/conta.png?raw=true)
+	
+	![Tela de extrato da conta](docs/imagens/extrato.png?raw=true)
+	
+	![Tela de transferência entre contas](docs/imagens/transferencia.png?raw=true)
+	
+# Passo a passo para a criação desta infraestrutura "DO ZERO"
 1. Criando um servidor de arquivos estáticos:
 
 		criar pasta para iniciar o projeto e digitar na linha de comando, dentro desta pasta:
@@ -88,3 +98,14 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	    para a pasta spec/conta/ do seu projeto
 	    
 	    npx karma start
+
+# Executando o projeto
+
+	1. Baixe o projeto https://github.com/fabiojo7777777/banco-teste-backend, importe no Eclipse ou outra IDE e execute a classe principal br.com.bancotestebackend.BancoTesteBackendApplication.java
+	
+	2. Baixe este projeto e na pasta do projeto execute os comandos:
+		
+		npm install
+		npm grunt-cli install -g
+		grunt
+	3. Acesse o endereço http://localhost:8100
