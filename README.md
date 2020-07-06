@@ -4,7 +4,7 @@ Projeto de testes somente para fins didáticos.
 
 Este projeto depende do backend **banco-teste-backend** (https://github.com/fabiojo7777777/banco-teste-backend)
 
-# Telas deste projeto em execução:
+# Telas deste projeto em execução
 
 ![Tela de login](docs/imagens/login.png?raw=true)
 	
