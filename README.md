@@ -17,16 +17,18 @@ Este projeto depende do backend **banco-teste-backend** (https://github.com/fabi
 	
 # Executando o projeto
 
-	1. Baixe o projeto https://github.com/fabiojo7777777/banco-teste-backend, importe no Eclipse ou outra IDE e execute a classe principal br.com.bancotestebackend.BancoTesteBackendApplication.java
+1. Baixe o projeto https://github.com/fabiojo7777777/banco-teste-backend, importe no Eclipse ou outra IDE e execute a classe principal br.com.bancotestebackend.BancoTesteBackendApplication.java
 	
-	2. Baixe este projeto e na pasta do projeto execute os comandos:
+2. Baixe este projeto e na pasta do projeto execute os comandos:
 		
 		npm install
 		npm grunt-cli install -g
 		grunt
-	3. Acesse o endereço http://localhost:8100
+		
+3. Acesse o endereço http://localhost:8100
 	
-	4. Faça login com um dos usuários abaixo:
+4. Faça login com um dos usuários abaixo:
+
 		1. Usuário: fulano
 		   Senha: fulano
 		
