@@ -1,13 +1,12 @@
 'use strict';
 
 if (typeof Api === "undefined") {
-    var Api = {
-        contas: {}
-    };
+    var Api = {};
 }
 
 (function() {
 
+    Api.contas = {};
 
     // MOCK SUCESSOS
     Api.contas.LISTAGEM_VAZIA = {
