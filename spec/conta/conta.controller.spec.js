@@ -25,13 +25,13 @@ describe("conta.controller", function() {
         _$rootScope_.messages = [];
 
         // mockar sucesso independendo do request de entrada
-        SuperMock.mockarRespostaBackend("contas", Api.contas.sucessos.LISTAGEM_VAZIA, undefined);
+        SuperMock.mockarRespostaBackend("contas", Api.contas.LISTAGEM_VAZIA, undefined);
         // mockar erro independendo do request de entrada
-        SuperMock.mockarRespostaBackend("contas", undefined, Api.contas.erros.DAR_ERRO_1);
+        SuperMock.mockarRespostaBackend("contas", undefined, Api.contas.DAR_ERRO_1);
         // mockar sucesso baseado no request de entrada
-        SuperMock.mockarRespostaBackend("contas", { codigo: 1 }, Api.contas.sucessos.LISTAGEM_POR_CODIGO_1, undefined);
+        SuperMock.mockarRespostaBackend("contas", { codigo: 1 }, Api.contas.LISTAGEM_POR_CODIGO_1, undefined);
         // mockar erro baseado no request de entrada
-        SuperMock.mockarRespostaBackend("contas", { codigo: 2 }, undefined, Api.contas.erros.DAR_ERRO_2);
+        SuperMock.mockarRespostaBackend("contas", { codigo: 2 }, undefined, Api.contas.DAR_ERRO_2);
 
         ctrl.onInit();
 
