@@ -1,38 +1,44 @@
 (function() {
-	var aplicacao = angular.module("conta-controllers", []);
+    var aplicacao = angular.module("conta-controllers", []);
 
-	aplicacao.controller("ContaController", ContaController);
+    aplicacao.controller("ContaController", ContaController);
 
-	ContaController.$inject = ["$filter", "$location", "$rootScope", "BackendService"];
-	
-	function ContaController($filter, $location, $rootScope, BackendService) {
-		var vm = this;
-		vm.onInit = onInit;
-		vm.detalheExtrato = detalheExtrato;
-		vm.transferencia = transferencia;
-		vm.listaConta = [];
-	
-		var currencyFilter = $filter('currency');
+    ContaController.$inject = ["$filter", "$location", "$rootScope", "BackendService", "$scope", "$timeout"];
 
-		function onInit() {
-			$rootScope.messages = [];
-			BackendService.contas({})
-			.then(function(response){
-				vm.listaConta = response.data.data;
-			});
-		}
-		
-		function detalheExtrato(conta) {
-			$location.search("agencia", conta.codigoAgencia);
-			$location.search("conta", conta.numeroConta);
-			$location.path("/detalhe-extrato");
-		}
+    function ContaController($filter, $location, $rootScope, BackendService, $scope, $timeout) {
+        var vm = this;
+        vm.onInit = onInit;
+        vm.detalheExtrato = detalheExtrato;
+        vm.transferencia = transferencia;
+        vm.listaConta = [];
 
-		function transferencia(conta) {
-			$location.search("agenciaOrigem", conta.codigoAgencia);
-			$location.search("contaOrigem", conta.numeroConta);
-			$location.path("/transferencia");
-		}
-	}
+        var currencyFilter = $filter('currency');
+
+        function onInit() {
+            console.log(BackendService);
+            $rootScope.messages = [];
+            BackendService.contas({})
+                .then(function(response) {
+                    vm.listaConta = response.data.data;
+                })
+                .catch(function(erro) {});
+            $timeout(function() {
+                console.log("executar assincrono");
+                $scope.teste = 1;
+            }, 10000);
+        }
+
+        function detalheExtrato(conta) {
+            $location.search("agencia", conta.codigoAgencia);
+            $location.search("conta", conta.numeroConta);
+            $location.path("/detalhe-extrato");
+        }
+
+        function transferencia(conta) {
+            $location.search("agenciaOrigem", conta.codigoAgencia);
+            $location.search("contaOrigem", conta.numeroConta);
+            $location.path("/transferencia");
+        }
+    }
 
 })();
