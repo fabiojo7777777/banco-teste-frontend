@@ -1,15 +1,35 @@
 'use strict';
 
-var Api = {
-    erros: {},
-    sucessos: {},
-};
+if (typeof Api === "undefined") {
+    var Api = {
+        contas: {
+            erros: {},
+            sucessos: {},
+        }
+    };
+}
 
 (function() {
 
 
-    Api.erros.CONTAS_DEU_ERRO_1 = {
+    // MOCK SUCESSOS
+    Api.contas.sucessos.LISTAGEM_VAZIA = {
+        data: []
+    };
+
+    Api.contas.sucessos.LISTAGEM_POR_CODIGO_1 = {
+        data: [{
+            codigo: 1
+        }]
+    };
+
+    // MOCK ERROS
+    Api.contas.erros.DAR_ERRO_1 = {
         erro: "deu erro 1"
+    };
+
+    Api.contas.erros.DAR_ERRO_2 = {
+        erro: "deu erro 2"
     };
 
 })();
