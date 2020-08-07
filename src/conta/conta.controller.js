@@ -15,7 +15,11 @@
         var currencyFilter = $filter('currency');
 
         function onInit() {
-            console.log(BackendService);
+            $scope.$on("aaaa", function(evt, dado) {
+                vm.dado$On = dado;
+            });
+            var vm1 = $scope.$parent.vm;
+            vm.lista = vm1.aaaa;
             $rootScope.messages = [];
             BackendService.contas({})
                 .then(function(response) {
