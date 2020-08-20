@@ -1,47 +1,133 @@
 <html data-ng-app="banco-teste-app">
-    <head>
-        <title>Banco exemplo</title>
-    </head>
-    <body class="container">
 
-		<link rel="stylesheet" href="node_modules/ui-bootstrap-csp.css" charset="UTF-8"></link>		
-		<link rel="stylesheet" href="node_modules/bootstrap.css" charset="UTF-8"></link>
-		<link rel="stylesheet" href="node_modules/bootstrap-grid.css" charset="UTF-8"></link>
-		<link rel="stylesheet" href="node_modules/bootstrap-reboot.css" charset="UTF-8"></link>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="node_modules/material-icons.css" charset="UTF-8"></link>	
+<head>
+    <title>Banco exemplo</title>
+</head>
 
-        <script src="node_modules/angular.js" charset="UTF-8"></script>
-		<script src="node_modules/angular-locale_pt-br.js" charset="UTF-8"></script>
-		<script src="node_modules/angular-route.js" charset="UTF-8"></script>
-		<script src="node_modules/ui-bootstrap-tpls.js" charset="UTF-8"></script>
+<body class="container">
 
-		<script src="directive/banco-teste-alert/banco-teste-alert.js" charset="UTF-8"></script>
-		<script src="directive/banco-teste-carregando/banco-teste-carregando.js" charset="UTF-8"></script>
-		<script src="filter/formatarData/formatar-data.js" charset="UTF-8"></script>
-		<script src="service/backend.service.js" charset="UTF-8"></script>
-        <script src="index.app.js" charset="UTF-8"></script>
-        <script src="index.route.js" charset="UTF-8"></script>
-		<script src="login/login.controller.js" charset="UTF-8"></script>
-		<script src="conta/conta.controller.js" charset="UTF-8"></script>
-		<script src="conta/detalhe-extrato.controller.js" charset="UTF-8"></script>
-		<script src="conta/transferencia.controller.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="node_modules/ui-bootstrap-csp.css" charset="UTF-8"></link>
+    <link rel="stylesheet" href="node_modules/bootstrap.css" charset="UTF-8"></link>
+    <link rel="stylesheet" href="node_modules/bootstrap-grid.css" charset="UTF-8"></link>
+    <link rel="stylesheet" href="node_modules/bootstrap-reboot.css" charset="UTF-8"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="node_modules/material-icons.css" charset="UTF-8"></link>
 
-		<style>
-			.nav, .pagination, .carousel, .panel-title a, a { 
-				cursor: pointer; 
-			};
-		</style>
+    <script src="node_modules/angular.js" charset="UTF-8"></script>
+    <script src="node_modules/angular-locale_pt-br.js" charset="UTF-8"></script>
+    <script src="node_modules/angular-route.js" charset="UTF-8"></script>
+    <script src="node_modules/ui-bootstrap-tpls.js" charset="UTF-8"></script>
 
-		<div data-ng-controller="LoginController as vm" data-ng-init="vm.onInit()">
-			<div class="text-right">
-				<span title="Logoff" data-ng-click="vm.logoff()" class="btn btn-default mi mi-exit-to-app"></span>
-			</div>
-		</div>
-		<banco-teste-carregando></banco-teste-carregando>
-		<banco-teste-alert></banco-teste-alert>
-		
-		<div data-ng-view>
-		</div>
-    </body>
+    <script src="directive/banco-teste-alert/banco-teste-alert.js" charset="UTF-8"></script>
+    <script src="directive/banco-teste-carregando/banco-teste-carregando.js" charset="UTF-8"></script>
+    <script src="filter/formatarData/formatar-data.js" charset="UTF-8"></script>
+    <script src="service/backend.service.js" charset="UTF-8"></script>
+    <script src="index.app.js" charset="UTF-8"></script>
+    <script src="index.route.js" charset="UTF-8"></script>
+    <script src="login/login.controller.js" charset="UTF-8"></script>
+    <script src="conta/conta.controller.js" charset="UTF-8"></script>
+    <script src="conta/detalhe-extrato.controller.js" charset="UTF-8"></script>
+    <script src="conta/transferencia.controller.js" charset="UTF-8"></script>
+
+    <style>
+        .nav,
+        .pagination,
+        .carousel,
+        .panel-title a,
+        a {
+            cursor: pointer;
+        }
+        
+        ;
+    </style>
+
+    <div data-ng-controller="LoginController as vm" data-ng-init="vm.onInit()">
+        <div class="text-right">
+            <span title="Logoff" data-ng-click="vm.logoff()" class="btn btn-default mi mi-exit-to-app"></span>
+        </div>
+    </div>
+    <banco-teste-carregando></banco-teste-carregando>
+    <banco-teste-alert></banco-teste-alert>
+
+    <input type="button" id="teste" value="Clique aqui">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#teste").click(function() {
+                function downloadPdf(url, data, responseType) {
+                    var method = "POST";
+                    if (typeof data === "undefined") {
+                        method = "GET";
+                    }
+                    return new Promise(function(resolve, reject) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open(method, url, true);
+                        xhr.setRequestHeader("Content-type", "application/json");
+                        xhr.responseType = responseType.responseType;
+                        xhr.onload = function(e) {
+                            console.log(this);
+                            if (this.status == 200) {
+                                console.log(typeof this.response);
+                                resolve(this.response);
+                            } else {
+                                var error = String.fromCharCode.apply(null, new Uint8Array(this.response));
+                                var err = "Erro " + this.status + ": " + this.statusText;
+                                try {
+                                    if (typeof error === "string" && error) {
+                                        err = error;
+                                    } else {
+                                        err = JSON.parse(error);
+                                    }
+                                } catch (e1) {
+                                    console.error(e1);
+                                }
+                                if (!err && this.statusText) {
+                                    err = this.statusText;
+                                }
+                                reject(err);
+                            }
+                        }
+                        if (typeof data === "undefined") {
+                            xhr.send();
+                        } else {
+                            xhr.send(data);
+                        }
+                    });
+                }
+
+                var requisicao = {
+                    teste: 1
+                };
+                requisicao = undefined;
+                downloadPdf("dummy.pdf", requisicao, {
+                        responseType: "text"
+                    })
+                    .then(function(response) {
+                        console.log(typeof response);
+                        var blob = new Blob([response], {
+                            type: 'application/pdf'
+                        });
+                        var link = document.createElement('a');
+                        link.style = "display:none";
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = "Teste.pdf";
+                        link.target = "_blank";
+                        document.body.appendChild(link);
+                        link.click();
+                        window.URL.revokeObjectURL(link.href);
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                        $rootScope.messages.push({
+                            "type": "ERROR",
+                            "text": error
+                        });
+                    });
+            });
+        });
+    </script>
+    <div data-ng-view>
+    </div>
+</body>
+
 </html>
