@@ -1,21 +1,26 @@
-'use strict';
-
 var SuperMock;
 var Promise;
 
 (function() {
+
+    'use strict';
+
     SuperMock = {
         mockarBackend: _mockarBackend,
         mockarRespostaBackend: _mockarRespostaBackend,
         executarTodosProcessosAssincronosDoAngular: executarTodosProcessosAssincronosDoAngular,
         verificarNenhumProcessoAssincronoDoAngularPendenteDeExecucao: _verificarNenhumProcessoAssincronoDoAngularPendenteDeExecucao,
-        mockar$Scope: _mockar$Scope
+        mockar$Scope: _mockar$Scope,
+        lerJson: _lerJson,
+        diretorioJson: _diretorioJson
     };
     Promise = _Promise;
 
-
+    var _dirJson;
     var _BACKEND;
     var _MOCKS;
+
+    _diretorioJson("spec/mocks-api");
 
     function _mockarBackend() {
         _BACKEND = {};
@@ -26,9 +31,9 @@ var Promise;
     }
 
     function _mockarRespostaBackend(prop, p1, p2, p3) {
-        var request = undefined;
-        var responseSucesso = undefined;
-        var responseErro = undefined;
+        var request;
+        var responseSucesso;
+        var responseErro;
         if (arguments.length <= 1) {
             throw Error("Informe no mínimo o nome do backend e a resposta de sucesso");
         } else if (arguments.length == 2) {
@@ -47,12 +52,28 @@ var Promise;
     function _mockarRespostaBackend2(prop, request, responseSucesso, responseErro) {
         var mock = _obterOuCriarNovoMock(prop, request);
         if (typeof responseSucesso !== "undefined") {
-            mock.responseSucesso.push(responseSucesso);
+            try {
+                if (responseSucesso.indexOf(".json") === responseSucesso.length - 5) {
+                    mock.responseSucesso.push(_lerJson(responseSucesso));
+                } else {
+                    mock.responseSucesso.push(responseSucesso);
+                }
+            } catch (e) {
+                mock.responseSucesso.push(responseSucesso);
+            }
         } else {
             mock.responseSucesso.push(undefined);
         }
         if (typeof responseErro !== "undefined") {
-            mock.responseErro.push(responseErro);
+            try {
+                if (responseErro.indexOf(".json") === responseErro.length - 5) {
+                    mock.responseErro.push(_lerJson(responseErro));
+                } else {
+                    mock.responseErro.push(responseErro);
+                }
+            } catch (e) {
+                mock.responseErro.push(responseErro);
+            }
         } else {
             mock.responseErro.push(undefined);
         }
@@ -86,7 +107,7 @@ var Promise;
             return _MOCKS[prop][key];
         } else {
             // obs: "undefined" é a chave de pesquisa do mock default
-            return _MOCKS[prop]["undefined"];
+            return _MOCKS[prop].undefined;
         }
     }
 
@@ -176,24 +197,71 @@ var Promise;
             scope = $rootScopeProvider.$get().$new();
         });
         for (var property in scope) {
-            (function(p) {
-                var oldPropertyValue = scope[p];
-                Object.defineProperty(scope, p, {
-                    get: function() {
-                        if (!getControllerFunction()) {
-                            throw Error("Você deve acessar o $scope." + p + " a partir de uma function do controller que está associada ao ng-init do html ao invés de fazer este acesso durante a construção do controller (para o controller ser testável)");
-                        }
-                        return oldPropertyValue;
-                    },
-                    set: function(valor) {
-                        oldPropertyValue = valor;
-                    }
-                });
-            })(property);
+            _wrapProperty(scope, property, getControllerFunction);
         }
         return function() {
             return scope;
         };
+    }
+
+    function _wrapProperty(scope, property, getControllerFunction) {
+        var oldPropertyValue = scope[property];
+        Object.defineProperty(scope, property, {
+            get: function() {
+                if (!getControllerFunction()) {
+                    throw Error("Você deve acessar o $scope." + property + " a partir de uma function do controller que está associada ao ng-init do html ao invés de fazer este acesso durante a construção do controller (para o controller ser testável)");
+                }
+                return oldPropertyValue;
+            },
+            set: function(valor) {
+                oldPropertyValue = valor;
+            }
+        });
+    }
+
+    function _diretorioJson(dirJson) {
+        if (typeof dirJson === "string") {
+            _dirJson = dirJson;
+            if (_dirJson.length === 0) {
+                _dirJson = "/";
+            } else {
+                if (_dirJson.charAt(_dirJson.length - 1) !== "/") {
+                    _dirJson = _dirJson + "/";
+                }
+                if (_dirJson.charAt(0) !== "/") {
+                    _dirJson = "/" + _dirJson;
+                }
+            }
+        }
+    }
+
+    function _lerJson(url) {
+        var base = "/base" + _dirJson;
+        url = base + url;
+
+        var xhr = new XMLHttpRequest();
+        var json = null;
+
+        xhr.open("GET", url, false);
+
+        xhr.onload = function(e) {
+            if (xhr.status === 200) {
+                try {
+                    json = JSON.parse(xhr.responseText);
+                } catch (e1) {
+                    throw Error("Json inválido dentro do arquivo \"" + url + "\".Descrição: " + e1 + "\nJson informado: \"" + xhr.responseText + "\"");
+                }
+            } else {
+                throw Error("Erro ao ler arquivo json \"" + url + "\". Descrição: \"" + xhr.statusText + "\"");
+            }
+        };
+
+        xhr.onerror = function(e) {
+            throw Error("Erro ao ler arquivo json \"" + url + "\". Descrição: \"" + xhr.statusText + "\"");
+        };
+
+        xhr.send(null);
+        return json;
     }
 
 })();

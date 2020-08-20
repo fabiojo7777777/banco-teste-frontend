@@ -14,6 +14,8 @@ describe("conta.controller", function() {
         $provide.factory("BackendService", SuperMock.mockarBackend());
         // mock do $scope do controller a ser testado
         $provide.factory("$scope", SuperMock.mockar$Scope(function() { return ctrl; }));
+        // diretório para buscar arquivos .json. O diretório padrão é "spec/mocks-api"
+        // SuperMock.diretorioJson("spec/mocks-api");
     }));
 
     // criação do controller a ser testado
@@ -31,13 +33,13 @@ describe("conta.controller", function() {
         _$rootScope_.messages = [];
 
         // mockar sucesso na primeira chamada da api
-        SuperMock.mockarRespostaBackend("contas", Api.contas_LISTAGEM_VAZIA, undefined);
+        SuperMock.mockarRespostaBackend("contas", "contas/LISTAGEM_VAZIA.json", undefined);
         // mockar erro na segunda chamada da api
-        SuperMock.mockarRespostaBackend("contas", undefined, Api.contas_DAR_ERRO_1);
+        SuperMock.mockarRespostaBackend("contas", undefined, "contas/DAR_ERRO_1.json");
         // mockar sucesso na chamada da api
-        SuperMock.mockarRespostaBackend("contas", { codigo: 1 }, Api.contas_LISTAGEM_POR_CODIGO_1, undefined);
+        SuperMock.mockarRespostaBackend("contas", { codigo: 1 }, "contas/LISTAGEM_POR_CODIGO_1.json", undefined);
         // mockar erro na chamada da api
-        SuperMock.mockarRespostaBackend("contas", { codigo: 2 }, undefined, Api.contas_DAR_ERRO_2);
+        SuperMock.mockarRespostaBackend("contas", { codigo: 2 }, undefined, "contas/DAR_ERRO_2.json");
 
         // colocar os valores do parent scope aqui para testar comportamento
         _$scope_.$parent.vm = {};
