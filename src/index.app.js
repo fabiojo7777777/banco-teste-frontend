@@ -21,7 +21,7 @@
 			if (angular.isArray(newMessages) && newMessages.length > 0) {
 				$timeout(function(){
 					window.top.scrollTo(0, 0);
-				}, 0);
+				}, 10);
 			}
 		});
 	});
