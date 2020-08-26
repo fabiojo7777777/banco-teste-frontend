@@ -15,6 +15,14 @@
 	aplicacao.config(['$httpProvider', function($httpProvider) {
 		$httpProvider.interceptors.push(HttpInterceptor);
 	}]);
+	
+	aplicacao.run(function($rootScope) {
+		$rootScope.$watch("messages", function(oldMessages, newMessages) {
+			if (angular.isArray(newMessages) && newMessages.length > 0) {
+				window.top.scrollTo(0, 0);
+			}
+		});
+	});
 
 	aplicacao.factory(['HttpInterceptor', HttpInterceptor]);
 
