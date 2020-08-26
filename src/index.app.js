@@ -16,10 +16,12 @@
 		$httpProvider.interceptors.push(HttpInterceptor);
 	}]);
 	
-	aplicacao.run(function($rootScope) {
+	aplicacao.run(function($rootScope, $timeout) {
 		$rootScope.$watch("messages", function(oldMessages, newMessages) {
 			if (angular.isArray(newMessages) && newMessages.length > 0) {
-				window.top.scrollTo(0, 0);
+				$timeout(function(){
+					window.top.scrollTo(0, 0);
+				}, 0);
 			}
 		});
 	});
